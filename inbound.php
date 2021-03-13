@@ -47,10 +47,16 @@ token: SHA-256 hash of client's IP address. Used for unique visitor metrics
 
 */
 
-
+$epoch = htmlspecialchars($_POST["epoch"]);
+$country = htmlspecialchars($_POST["country"]);
+$website = htmlspecialchars($d);
+$token = htmlspecialchars($_POST["token"]);
 
 
 $stmt = $conn->prepare("INSERT INTO a (epoch, website, country, token) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $epoch1, $country1);
+$stmt->bind_param("ssss", $epoch, $country, $website, $token);
 $stmt->execute();
 $stmt->close();
+
+$a = array("success" => "true", "message" => "OK");
+die(json_encode($a, true));

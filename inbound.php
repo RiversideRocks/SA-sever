@@ -4,7 +4,7 @@ header("Content-type: application/json");
 
 require __DIR__ . "/vendor/autoload.php";
 
-$d = $_GET["origin"];
+$d = $_GET["d"];
 
 if($d == "*")
 {

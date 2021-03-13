@@ -57,7 +57,7 @@ $token = htmlspecialchars($_POST["token"]);
 
 
 $stmt = $conn->prepare("INSERT INTO a (epoch, website, country, token) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $epoch, $country, $website, $token);
+$stmt->bind_param("ssss", $epoch, $website, $country, $token);
 $stmt->execute();
 $stmt->close();
 

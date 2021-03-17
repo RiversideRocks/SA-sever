@@ -43,7 +43,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $countries = array();
-$hits = array();
+$hitz = array();
 while ($row = $result->fetch_assoc()) {
     $country = $row["country"];
     if(! $country)
@@ -52,7 +52,7 @@ while ($row = $result->fetch_assoc()) {
     }
     $hit = $row["hits"];
     array_push($countries, $country);
-    array_push($hits, $hit);
+    array_push($hitz, $hit);
 }
 
 $sql = "SELECT * FROM a WHERE website=?";
@@ -79,6 +79,6 @@ echo json_encode(array(
     "verbose" =>
         array(
             "countries" => $countries,
-            "hits" => $hits,
+            "hits" => $hitz,
         )
 ));

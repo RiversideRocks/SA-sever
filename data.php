@@ -55,9 +55,27 @@ while ($row = $result->fetch_assoc()) {
     array_push($hits, $hit);
 }
 
+$sql = "SELECT * FROM a WHERE website=?";
+//$stmt->bind_param("s", $website);
+$stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $website);
+$stmt->execute();
+$result = $stmt->get_result();
+$u = array();
+while ($row = $result->fetch_assoc()) {
+    if(in_array($row["token"], $u))
+    {
+        // Move on
+    }else{
+        array_push($u, $row["token"]);
+    }
+}
+
+$unique = count($u);
 
 echo json_encode(array(
     "total_hits" => count($hits),
+    "unique_hits" => $unique,
     "verbose" =>
         array(
             "countries" => $countries,

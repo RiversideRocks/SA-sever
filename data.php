@@ -73,9 +73,21 @@ while ($row = $result->fetch_assoc()) {
 
 $unique = count($u);
 
+$seconds = $hits * 5;
+$minutes = $seconds/60;
+$hours = $minutes/60;
+$days = $hours/24;
+
 echo json_encode(array(
     "total_hits" => $hits,
     "unique_hits" => $unique,
+    "time_spent" =>
+        array(
+            "seconds" => $seconds,
+            "minutes" => $minutes,
+            "hours" => $hours,
+            "days" => $days
+         ),
     "verbose" =>
         array(
             "countries" => $countries,

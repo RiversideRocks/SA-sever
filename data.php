@@ -74,9 +74,9 @@ while ($row = $result->fetch_assoc()) {
 $unique = count($u);
 
 $seconds = $hits * 5;
-$minutes = $seconds/60;
-$hours = $minutes/60;
-$days = $hours/24;
+$minutes = round($seconds/60);
+$hours = round($minutes/60);
+$days = round($hours/24);
 
 echo json_encode(array(
     "total_hits" => $hits,

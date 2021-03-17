@@ -28,9 +28,9 @@ $stmt->bind_param("s", $website);
 $stmt->execute();
 //$stmt->close();
 $result = $stmt->get_result();
-$hits = array();
+$hits = 0;
 while ($row = $result->fetch_assoc()) {
-    array_push($hits, $row["country"]);
+    $hits = $hits + 1;
 }
 
 //$final = array("hits" => count($hits));
@@ -74,7 +74,7 @@ while ($row = $result->fetch_assoc()) {
 $unique = count($u);
 
 echo json_encode(array(
-    "total_hits" => count($hits),
+    "total_hits" => $hits,
     "unique_hits" => $unique,
     "verbose" =>
         array(

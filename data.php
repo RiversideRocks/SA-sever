@@ -76,7 +76,7 @@ $unique = count($u);
 $seconds = $hits * 5;
 $minutes = round($seconds/60);
 $hours = round($minutes/60);
-$days = round($hours/24);
+$days = round($hours/24, 1);
 
 echo json_encode(array(
     "total_hits" => $hits,

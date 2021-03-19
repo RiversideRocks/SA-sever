@@ -1,5 +1,5 @@
 <?php
-echo "<script> const website='" . htmlspecialchars($_GET["site"]) . "';";
+echo "<script> const website='" . htmlspecialchars($_GET["site"]) . "';</script>";
 ?>
 
 <!DOCTYPE html>

@@ -38,7 +38,7 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-$sql = "SELECT country, count(*) as hits from a GROUP BY country WHERE website=? ORDER BY hits DESC";
+$sql = "SELECT country, count(*) as hits WHERE website=? from a GROUP BY country ORDER BY hits DESC";
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("s", $website);
 $stmt->execute();

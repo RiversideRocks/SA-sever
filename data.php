@@ -38,8 +38,9 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-$sql = "SELECT country, count(*) as hits from a GROUP BY country ORDER BY hits DESC";
+$sql = "SELECT country, count(*) as hits from a GROUP BY country ORDER BY hits DESC WHERE website=?";
 $stmt = $conn->prepare($sql); 
+$stmt->bind_param("s", $website);
 $stmt->execute();
 $result = $stmt->get_result();
 $countries = array();

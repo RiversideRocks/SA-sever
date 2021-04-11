@@ -90,7 +90,7 @@ echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "</str
       </p>
     </div>
     <h1>
-      Top 5 Locations
+      Top Locations
     </h1>
     <p id="start">
       
@@ -122,7 +122,7 @@ fetch(`${baseUrl}${website}`)
     var ammounts = data.verbose.hits;
   
     var c
-    for (c = 0; c < 5; c++) { 
+    for (c = 0; c < data.verbose.total_countries; c++) { 
       var p = document.createElement("P");
       document.body.appendChild(p);
       p.innerHTML = "<img src='https://poptox-3744.kxcdn.com/assets/images/flags/32/"+countries[c].toLowerCase()+".png' />    "+ammounts[c]

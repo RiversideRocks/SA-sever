@@ -64,7 +64,7 @@ h1 {
   </head>  
   <body>
     <?php
-echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "'</strong>";
+echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "</strong>";
 ?>
     <h1 id="website-url">
       hola

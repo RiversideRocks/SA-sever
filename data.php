@@ -91,6 +91,7 @@ echo json_encode(array(
          ),
     "verbose" =>
         array(
+            "total_countries" => count($countries),
             "countries" => $countries,
             "hits" => $hitz,
         )

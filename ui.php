@@ -1,5 +1,5 @@
 <?php
-echo "<script> const website='" . htmlspecialchars($_GET["site"]) . "';</script>";
+echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "'</strong>";
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +97,7 @@ h1 {
     <script>
 let baseUrl = "https://riverside.rocks/apis/data.php?website=";
 
-document.getElementById("website-url").innerText = website;
+getElementsByTagName("STRONG")[0].innerText = website;
 
 fetch(`${baseUrl}${website}`)
   .then(res => res.json())

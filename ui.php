@@ -1,6 +1,4 @@
-<?php
-echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "'</strong>";
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +63,9 @@ h1 {
     </style>
   </head>  
   <body>
+    <?php
+echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "'</strong>";
+?>
     <h1 id="website-url">
       hola
     </h1>
@@ -97,7 +98,7 @@ h1 {
     <script>
 let baseUrl = "https://riverside.rocks/apis/data.php?website=";
 
-getElementsByTagName("STRONG")[0].innerText = website;
+const website = document.getElementsByTagName("STRONG")[0].innerText;
 
 fetch(`${baseUrl}${website}`)
   .then(res => res.json())

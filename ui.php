@@ -67,7 +67,7 @@ h1 {
 echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "</strong>";
 ?>
     <h1 id="website-url">
-      hola
+      Loading...
     </h1>
     
     <div class="analytics">
@@ -99,7 +99,8 @@ echo "<strong style='display:none;'>" . htmlspecialchars($_GET["site"]) . "</str
 let baseUrl = "https://riverside.rocks/apis/data.php?website=";
 
 const website = document.getElementsByTagName("STRONG")[0].innerText;
-
+document.getElementById("website-url").innerText = website;
+      
 fetch(`${baseUrl}${website}`)
   .then(res => res.json())
   .then(data => {
